@@ -2,7 +2,7 @@
 {
     using Microsoft.AspNetCore.Authorization;
 
-    using static Constants;
+    using static Data.DataConstants.Identity;
 
     public class AuthorizeAdministratorAttribute : AuthorizeAttribute
     {
