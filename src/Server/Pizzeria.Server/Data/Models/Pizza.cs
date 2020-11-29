@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
     using Common;
-    using Enums;
 
     public class Pizza : DeletableEntity<int>
     {
@@ -15,8 +14,6 @@
         public string Description { get; set; }
 
         public int Calories { get; set; }
-
-        public Size Size { get; set; }
 
         public ICollection<OrderPizza> Orders { get; } = new HashSet<OrderPizza>();
     }

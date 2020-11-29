@@ -10,7 +10,7 @@ using Pizzeria.Server.Data;
 namespace Pizzeria.Server.Data.Migrations
 {
     [DbContext(typeof(PizzeriaDbContext))]
-    [Migration("20201129093742_InitialCreate")]
+    [Migration("20201129143933_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -187,6 +187,9 @@ namespace Pizzeria.Server.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int>("Size")
+                        .HasColumnType("int");
+
                     b.HasKey("OrderId", "PizzaId");
 
                     b.HasIndex("PizzaId");
@@ -234,9 +237,6 @@ namespace Pizzeria.Server.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasPrecision(19, 4)
                         .HasColumnType("decimal(19,4)");
-
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

@@ -185,6 +185,9 @@ namespace Pizzeria.Server.Data.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int>("Size")
+                        .HasColumnType("int");
+
                     b.HasKey("OrderId", "PizzaId");
 
                     b.HasIndex("PizzaId");
@@ -232,9 +235,6 @@ namespace Pizzeria.Server.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasPrecision(19, 4)
                         .HasColumnType("decimal(19,4)");
-
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

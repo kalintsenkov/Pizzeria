@@ -19,10 +19,16 @@
 
         public class Pizza
         {
-            public const int MinQuantity = 1;
-            public const int MaxQuantity = int.MaxValue;
+            public const int MinCalories = 1;
+            public const int MaxCalories = 1000;
             public const string MinPrice = "1";
             public const string MaxPrice = "100000";
+        }
+
+        public class Order
+        {
+            public const int MinQuantity = 1;
+            public const int MaxQuantity = int.MaxValue;
         }
     }
 }

@@ -5,10 +5,10 @@
     using Data;
     using Microsoft.EntityFrameworkCore;
 
-    public abstract class BaseService<TEntity>
+    public abstract class DataService<TEntity>
         where TEntity : class
     {
-        protected BaseService(PizzeriaDbContext data, IMapper mapper)
+        protected DataService(PizzeriaDbContext data, IMapper mapper)
         {
             this.Data = data;
             this.Mapper = mapper;
