@@ -23,11 +23,11 @@
         }
 
         public async Task<Result> RegisterAsync(
-            RegisterRequestModel model)
+            RegisterRequestModel request)
         {
-            var user = new PizzeriaUser(model.Email);
+            var user = new PizzeriaUser(request.Email);
 
-            var identityResult = await this.userManager.CreateAsync(user, model.Password);
+            var identityResult = await this.userManager.CreateAsync(user, request.Password);
 
             var errors = identityResult.Errors.Select(e => e.Description);
 
@@ -37,15 +37,15 @@
         }
 
         public async Task<Result<LoginResponseModel>> LoginAsync(
-            LoginRequestModel model)
+            LoginRequestModel request)
         {
-            var user = await this.userManager.FindByEmailAsync(model.Email);
+            var user = await this.userManager.FindByEmailAsync(request.Email);
             if (user == null)
             {
                 return InvalidErrorMessage;
             }
 
-            var passwordValid = await this.userManager.CheckPasswordAsync(user, model.Password);
+            var passwordValid = await this.userManager.CheckPasswordAsync(user, request.Password);
             if (!passwordValid)
             {
                 return InvalidErrorMessage;

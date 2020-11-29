@@ -18,16 +18,15 @@
         {
         }
 
-        public async Task<int> CreateAsync(
-            PizzasRequestModel model)
+        public async Task<int> CreateAsync(PizzasRequestModel request)
         {
             var pizza = new Pizza
             {
-                Name = model.Name,
-                Price = model.Price,
-                ImageUrl = model.ImageUrl,
-                Description = model.Description,
-                Calories = model.Calories
+                Name = request.Name,
+                Price = request.Price,
+                ImageUrl = request.ImageUrl,
+                Description = request.Description,
+                Calories = request.Calories
             };
 
             await this.Data.AddAsync(pizza);
@@ -36,8 +35,7 @@
             return pizza.Id;
         }
 
-        public async Task<Result> UpdateAsync(
-            int id, PizzasRequestModel model)
+        public async Task<Result> UpdateAsync(int id, PizzasRequestModel request)
         {
             var pizza = await this.FindByIdAsync(id);
 
@@ -46,11 +44,11 @@
                 return false;
             }
 
-            pizza.Name = model.Name;
-            pizza.Price = model.Price;
-            pizza.ImageUrl = model.ImageUrl;
-            pizza.Description = model.Description;
-            pizza.Calories = model.Calories;
+            pizza.Name = request.Name;
+            pizza.Price = request.Price;
+            pizza.ImageUrl = request.ImageUrl;
+            pizza.Description = request.Description;
+            pizza.Calories = request.Calories;
 
             await this.Data.SaveChangesAsync();
 

@@ -28,13 +28,13 @@
 
         [HttpPost]
         public async Task<ActionResult<int>> Create(
-            PizzasRequestModel model)
-            => await this.pizzas.CreateAsync(model);
+            PizzasRequestModel request)
+            => await this.pizzas.CreateAsync(request);
 
         [HttpPut(Id)]
         public async Task<ActionResult> Update(
-            int id, PizzasRequestModel model)
-            => await this.pizzas.UpdateAsync(id, model);
+            int id, PizzasRequestModel request)
+            => await this.pizzas.UpdateAsync(id, request);
 
         [HttpDelete(Id)]
         public async Task<ActionResult> Delete(

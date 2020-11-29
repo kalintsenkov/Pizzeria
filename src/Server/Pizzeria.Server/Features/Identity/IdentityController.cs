@@ -13,12 +13,12 @@
 
         [HttpPost(nameof(Register))]
         public async Task<ActionResult> Register(
-            RegisterRequestModel model)
-            => await this.identity.RegisterAsync(model);
+            RegisterRequestModel request)
+            => await this.identity.RegisterAsync(request);
 
         [HttpPost(nameof(Login))]
         public async Task<ActionResult<LoginResponseModel>> Login(
-            LoginRequestModel model)
-            => await this.identity.LoginAsync(model);
+            LoginRequestModel request)
+            => await this.identity.LoginAsync(request);
     }
 }

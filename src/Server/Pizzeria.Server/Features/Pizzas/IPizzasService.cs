@@ -8,9 +8,9 @@
 
     public interface IPizzasService : IService
     {
-        Task<int> CreateAsync(PizzasRequestModel model);
+        Task<int> CreateAsync(PizzasRequestModel request);
 
-        Task<Result> UpdateAsync(int id, PizzasRequestModel model);
+        Task<Result> UpdateAsync(int id, PizzasRequestModel request);
 
         Task<Result> DeleteAsync(int id);
 

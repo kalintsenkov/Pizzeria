@@ -7,8 +7,8 @@
 
     public interface IIdentityService : IService
     {
-        Task<Result> RegisterAsync(RegisterRequestModel model);
+        Task<Result> RegisterAsync(RegisterRequestModel request);
 
-        Task<Result<LoginResponseModel>> LoginAsync(LoginRequestModel model);
+        Task<Result<LoginResponseModel>> LoginAsync(LoginRequestModel request);
     }
 }
