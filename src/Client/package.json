@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~11.0.3",
     "@angular/router": "~11.0.3",
     "@asymmetrik/ngx-leaflet": "^7.0.1",
+    "@auth0/angular-jwt": "^5.0.2",
     "leaflet": "^1.6.0",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",

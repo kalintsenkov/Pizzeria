@@ -2,19 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AuthenticationModule } from './authentication/authentication.module';
+import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CartComponent,
+    CheckoutComponent,
   ],
   imports: [
     AuthenticationModule,
+    CoreModule,
     SharedModule,
     BrowserModule,
     AppRoutingModule,
