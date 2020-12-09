@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ApiService } from './services/api.service';
 import { JwtService } from './services/jwt.service';
@@ -20,6 +20,9 @@ import { TokenInterceptorService } from './interceptors/token-interceptor.servic
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HttpClientModule
   ]
 })
 export class CoreModule { }
