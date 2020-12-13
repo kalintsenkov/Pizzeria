@@ -1,4 +1,3 @@
-<!-- Register Form Start -->
 <div class="section">
 
   <div class="imgs-wrapper">
@@ -21,31 +20,25 @@
 
         <h2>Sign Up</h2>
 
-        <form method="post">
+        <form [formGroup]="registerForm" (ngSubmit)="register()">
+          <app-error-list [errors]="errors"></app-error-list>
 
-          <div class="form-group">
-            <input type="text" class="form-control form-control-light" placeholder="Username" name="username" value="">
-          </div>
           <div class="form-group">
             <input type="email" class="form-control form-control-light" placeholder="Email Address" name="email"
-              value="">
+              formControlName="email" />
           </div>
+
           <div class="form-group">
             <input type="password" class="form-control form-control-light" placeholder="Password" name="password"
-              value="">
+              formControlName="password" />
           </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control form-control-light" placeholder="Confirm Password"
+              name="confirmPassword" formControlName="confirmPassword" />
+          </div>
+
           <button type="submit" class="btn-custom primary">Sign Up</button>
-
-          <div class="auth-seperator">
-            <span>OR</span>
-          </div>
-
-          <div class="social-login">
-            <button type="button" class="ct-social-login facebook"><i class="fab fa-facebook-f"></i> Continue with
-              Facebook </button>
-            <button type="button" class="ct-social-login google"><i class="fab fa-google"></i> Continue with
-              Google</button>
-          </div>
 
           <p>Already have an account? <a routerLink='/login'>Login</a> </p>
 
@@ -55,4 +48,3 @@
     </div>
   </div>
 </div>
-<!-- Register Form End -->
