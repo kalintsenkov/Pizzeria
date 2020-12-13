@@ -4,6 +4,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ApiService } from './services/api.service';
 import { JwtService } from './services/jwt.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 import { TokenInterceptorService } from './interceptors/token-interceptor.service';
 
@@ -17,6 +19,8 @@ import { TokenInterceptorService } from './interceptors/token-interceptor.servic
     },
     ApiService,
     JwtService,
+    AuthService,
+    AuthGuardService,
   ],
   imports: [
     CommonModule

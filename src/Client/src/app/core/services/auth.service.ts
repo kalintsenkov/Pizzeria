@@ -10,7 +10,7 @@ import { JwtService } from './jwt.service';
 })
 export class AuthService {
 
-    private identityPath = 'api/identity/';
+    private identityPath = 'identity/';
     private loginPath = this.identityPath + 'login';
     private registerPath = this.identityPath + 'register';
 

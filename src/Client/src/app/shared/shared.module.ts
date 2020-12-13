@@ -6,17 +6,20 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { PreloaderComponent } from './preloader/preloader.component';
+import { ErrorListComponent } from './error-list/error-list.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    ErrorListComponent
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
     PreloaderComponent,
+    ErrorListComponent,
     FormsModule,
     RouterModule,
     ReactiveFormsModule
