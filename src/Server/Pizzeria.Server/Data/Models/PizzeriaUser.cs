@@ -10,5 +10,7 @@
             => this.Email = email;
 
         public ICollection<Order> Orders { get; } = new HashSet<Order>();
+
+        public ICollection<ShoppingCart> ShoppingCarts { get; } = new HashSet<ShoppingCart>();
     }
 }

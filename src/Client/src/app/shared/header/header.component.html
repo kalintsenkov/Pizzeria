@@ -1,65 +1,29 @@
 <!-- Aside (Mobile Navigation) -->
 <aside class="main-aside">
-    <a class="navbar-brand" routerLink='/'> <img src="assets/img/logo.png" alt="logo"> </a>
+    <a class="navbar-brand" routerLink='/'>
+        <img src="assets/img/logo.png" alt="logo" />
+    </a>
 
     <div class="aside-scroll">
         <ul>
-            <li class="menu-item menu-item-has-children">
-                <a href="#">Home Pages</a>
-                <ul class="submenu">
-                    <li class="menu-item"> <a routerLink='/'>Home v1</a> </li>
-                    <li class="menu-item"> <a routerLink='/home-v2'>Home v2</a> </li>
-                    <li class="menu-item"> <a routerLink='/home-v3'>Home v3</a> </li>
-                    <li class="menu-item"> <a routerLink='/home-v4'>Home v4</a> </li>
-                </ul>
-            </li>
-            <li class="menu-item menu-item-has-children">
-                <a href="#">Blog</a>
-                <ul class="submenu">
-                    <li class="menu-item menu-item-has-children">
-                        <a routerLink='/blog-grid'>Blog Archive</a>
-                        <ul class="submenu">
-                            <li class="menu-item"> <a routerLink='/blog-grid'>Grid View</a> </li>
-                            <li class="menu-item"> <a routerLink='/blog-list'>List View</a> </li>
-                            <li class="menu-item"> <a routerLink='/blog-masonary'>Masonry</a> </li>
-                            <li class="menu-item"> <a routerLink='/blog-full'>Full Width</a> </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item">
-                        <a routerLink='/blog-single'>Blog Single</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="menu-item menu-item-has-children">
-                <a href="#">Pages</a>
-                <ul class="submenu">
-                    <li class="menu-item"> <a routerLink='/about'>About Us</a> </li>
-                    <li class="menu-item"> <a routerLink='/login'>Login</a> </li>
-                    <li class="menu-item"> <a routerLink='/register'>Sign Up</a> </li>
-                    <li class="menu-item"> <a routerLink='/checkout'>Checkout</a> </li>
-                    <li class="menu-item"> <a routerLink='/cart'>Cart</a> </li>
-
-                    <li class="menu-item"> <a routerLink='/legal'>Legal</a> </li>
-                    <li class="menu-item"> <a href="404.html">Error 404</a> </li>
-                </ul>
-            </li>
-            <li class="menu-item menu-item-has-children">
-                <a href="#">Menu</a>
-                <ul class="submenu">
-                    <li class="menu-item"> <a routerLink='/menu-v1'>Menu v1</a> </li>
-                    <li class="menu-item"> <a routerLink='/menu-v2'>Menu v2</a> </li>
-                    <li class="menu-item"> <a routerLink='/menu-item-v1'>Menu Item v1</a> </li>
-                    <li class="menu-item"> <a routerLink='/menu-item-v2'>Menu Item v2</a> </li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a routerLink='/locations'>Locations</a>
-            </li>
-            <li class="menu-item">
-                <a routerLink='/contact'>Contact Us</a>
-            </li>
+            <ul class="navbar-nav">
+                <li class="menu-item">
+                    <a routerLink='/'>Home</a>
+                </li>
+                <li class="menu-item">
+                    <a routerLink='/catalog'>Catalog</a>
+                </li>
+                <li class="menu-item">
+                    <a routerLink='/locations'>Locations</a>
+                </li>
+                <li class="menu-item">
+                    <a routerLink='/contacts'>Contact Us</a>
+                </li>
+                <li class="menu-item">
+                    <a routerLink='/about'>About Us</a>
+                </li>
+            </ul>
         </ul>
-
     </div>
 
 </aside>
@@ -71,149 +35,45 @@
     <div class="container">
         <nav class="navbar">
             <!-- Logo -->
-            <a class="navbar-brand" routerLink='/'> <img src="assets/img/logo.png" alt="logo"> </a>
+            <a class="navbar-brand" routerLink='/'>
+                <img src="assets/img/logo.png" alt="logo" />
+            </a>
             <!-- Menu -->
             <ul class="navbar-nav">
-                <li class="menu-item menu-item-has-children">
-                    <a href="#">Home Pages</a>
-                    <ul class="submenu">
-                        <li class="menu-item"> <a routerLink='/'>Home v1</a> </li>
-                        <li class="menu-item"> <a routerLink='/home-v2'>Home v2</a> </li>
-                        <li class="menu-item"> <a routerLink='/home-v3'>Home v3</a> </li>
-                        <li class="menu-item"> <a routerLink='/home-v4'>Home v4</a> </li>
-                    </ul>
+                <li class="menu-item">
+                    <a routerLink='/'>Home</a>
                 </li>
-                <li class="menu-item menu-item-has-children">
-                    <a href="#">Blog</a>
-                    <ul class="submenu">
-                        <li class="menu-item menu-item-has-children">
-                            <a routerLink='/blog-grid'>Blog Archive</a>
-                            <ul class="submenu">
-                                <li class="menu-item"> <a routerLink='/blog-grid'>Grid View</a> </li>
-                                <li class="menu-item"> <a routerLink='/blog-list'>List View</a> </li>
-                                <li class="menu-item"> <a routerLink='/blog-masonary'>Masonry</a> </li>
-                                <li class="menu-item"> <a routerLink='/blog-full'>Full Width</a> </li>
-                            </ul>
-                        </li>
-                        <li class="menu-item">
-                            <a routerLink='/blog-single'>Blog Single</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item menu-item-has-children">
-                    <a href="#">Pages</a>
-                    <ul class="submenu">
-                        <li class="menu-item"> <a routerLink='/about'>About Us</a> </li>
-                        <li class="menu-item"> <a routerLink='/login'>Login</a> </li>
-                        <li class="menu-item"> <a routerLink='/register'>Sign Up</a> </li>
-                        <li class="menu-item"> <a routerLink='/checkout'>Checkout</a> </li>
-                        <li class="menu-item"> <a routerLink='/cart'>Cart</a> </li>
-
-                        <li class="menu-item"> <a routerLink='/legal'>Legal</a> </li>
-                        <li class="menu-item"> <a href="404.html">Error 404</a> </li>
-                    </ul>
-                </li>
-                <li class="menu-item menu-item-has-children mega-menu-wrapper">
-                    <a href="#">Menu</a>
-                    <ul class="submenu">
-                        <li>
-                            <div class="container">
-                                <div class="row">
-
-                                    <div class="col-lg-4">
-                                        <div class="mega-menu-item">
-                                            <h5>Building a Pizza</h5>
-                                            <p>
-                                                Contrary to popular belief, Lorem Ipsum is not simply random text. It
-                                                has roots in a piece of
-                                                classical Latin literature from 45 BC,
-                                                making it over 2000 years old.
-                                            </p>
-                                            <a routerLink='/menu-item-v2'
-                                                class="btn-custom secondary shadow-none btn-sm">Build your Pizza</a>
-                                        </div>
-                                    </div>
-                                    <div class="offset-lg-1 col-lg-3">
-                                        <div class="mega-menu-item">
-                                            <h5>Menu Pages</h5>
-                                            <a routerLink='/menu-v1'>Menu v1</a>
-                                            <a routerLink='/menu-v2'>Menu v2</a>
-                                            <a href="#" class="coming-soon">Menu v3 <span>Coming Soon</span> </a>
-                                            <a href="#" class="coming-soon">Menu v4 <span>Coming Soon</span> </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="mega-menu-item">
-                                            <h5>Menu Item Pages</h5>
-                                            <a routerLink='/menu-item-v1'>Menu Item v1</a>
-                                            <a routerLink='/menu-item-v2'>Menu Item v2</a>
-                                            <a href="#" class="coming-soon">Menu Item v3 <span>Coming Soon</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 mega-menu-promotion-wrapper">
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <div class="mega-menu-promotion">
-                                                    <a routerLink='/menu-item-v1'><img src="assets/img/prods-sm/1.png"
-                                                            alt="pizza"></a>
-                                                    <div class="mega-menu-promotion-text">
-                                                        <h4><a routerLink='/menu-item-v1'>Pepperoni</a></h4>
-                                                        <span>$12.99</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="mega-menu-promotion">
-                                                    <a routerLink='/menu-item-v1'><img src="assets/img/prods-sm/2.png"
-                                                            alt="pizza"></a>
-                                                    <div class="mega-menu-promotion-text">
-                                                        <h4><a routerLink='/menu-item-v1'>Vegetarian</a></h4>
-                                                        <span>$9.99</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="mega-menu-promotion">
-                                                    <a routerLink='/menu-item-v1'><img src="assets/img/prods-sm/3.png"
-                                                            alt="pizza"></a>
-                                                    <div class="mega-menu-promotion-text">
-                                                        <h4><a routerLink='/menu-item-v1'>Ham & Cheese</a></h4>
-                                                        <span>$13.99</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-3">
-                                                <div class="mega-menu-promotion">
-                                                    <a routerLink='/menu-item-v1'><img src="assets/img/prods-sm/4.png"
-                                                            alt="pizza"></a>
-                                                    <div class="mega-menu-promotion-text">
-                                                        <h4><a routerLink='/menu-item-v1'>Specialty</a></h4>
-                                                        <span>$13.99</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                    </ul>
+                <li class="menu-item">
+                    <a routerLink='/catalog'>Catalog</a>
                 </li>
                 <li class="menu-item">
                     <a routerLink='/locations'>Locations</a>
                 </li>
                 <li class="menu-item">
-                    <a routerLink='/contact'>Contact Us</a>
+                    <a routerLink='/contacts'>Contact Us</a>
+                </li>
+                <li class="menu-item">
+                    <a routerLink='/about'>About Us</a>
+                </li>
+                <li *ngIf="isAuthenticated()" class="menu-item">
+                    <a (click)="logout()">Logout</a>
+                </li>
+                <li *ngIf="!isAuthenticated()" class="menu-item">
+                    <a routerLink='/login'>Login</a>
+                </li>
+                <li *ngIf="!isAuthenticated()" class="menu-item">
+                    <a routerLink='/register'>Register</a>
                 </li>
             </ul>
 
             <div class="header-controls">
                 <ul class="header-controls-inner">
-                    <li class="cart-dropdown-wrapper cart-trigger">
-                        <span class="cart-item-count">4</span>
-                        <i class="flaticon-shopping-bag"></i>
-                    </li>
+                    <a routerLink="/cart">
+                        <li *ngIf="isAuthenticated()" class="cart-dropdown-wrapper cart-trigger">
+                            <span class="cart-item-count">{{cartTotal}}</span>
+                            <i class="flaticon-shopping-bag"></i>
+                        </li>
+                    </a>
                     <li class="search-dropdown-wrapper search-trigger">
                         <i class="flaticon-search"></i>
                     </li>

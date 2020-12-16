@@ -25,7 +25,8 @@ import { ErrorListComponent } from './error-list/error-list.component';
     ReactiveFormsModule
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

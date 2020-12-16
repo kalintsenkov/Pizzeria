@@ -22,6 +22,10 @@
 
         public DbSet<OrderPizza> OrdersPizzas { get; set; }
 
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+
+        public DbSet<ShoppingCartPizza> ShoppingCartsPizzas { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInformation();
@@ -30,7 +34,7 @@
             return base.SaveChanges();
         }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
         {
             this.ApplyAuditInformation();
             this.ApplyDeletableEntity();

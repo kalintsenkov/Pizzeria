@@ -17,7 +17,6 @@ declare let $: any;
         }
     ],
 })
-
 export class AppComponent implements OnInit {
 
     location: any;
@@ -30,12 +29,11 @@ export class AppComponent implements OnInit {
     }
 
     recallJsFunctions() {
-        this.router.events
-            .subscribe((event) => {
-                if (event instanceof NavigationStart) {
-                    $('.ct-preloader').fadeIn('slow');
-                }
-            });
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationStart) {
+                $('.ct-preloader').fadeIn('slow');
+            }
+        });
         this.routerSubscription = this.router.events
             .pipe(filter(event => event instanceof NavigationEnd || event instanceof NavigationCancel))
             .subscribe(event => {

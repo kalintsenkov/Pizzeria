@@ -2,7 +2,7 @@
 {
     using System;
 
-    public abstract class DeletableEntity<TKey> : Entity<TKey>, IDeletableEntity
+    public abstract class DeletableEntity : Entity, IDeletableEntity
     {
         public DateTime? DeletedOn { get; set; }
 

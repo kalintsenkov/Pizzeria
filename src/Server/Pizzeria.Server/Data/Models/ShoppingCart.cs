@@ -3,14 +3,14 @@
     using System.Collections.Generic;
     using Common;
 
-    public class Order : Entity
+    public class ShoppingCart : Entity
     {
         public int Id { get; set; }
-        
+
         public string UserId { get; set; }
 
         public PizzeriaUser User { get; set; }
 
-        public ICollection<OrderPizza> Pizzas { get; } = new HashSet<OrderPizza>();
+        public ICollection<ShoppingCartPizza> Pizzas { get; } = new HashSet<ShoppingCartPizza>();
     }
 }
