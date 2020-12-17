@@ -37,7 +37,7 @@ export class HeaderComponent implements OnInit {
     });
 
     if (this.isAuthenticated()) {
-      this.cartsService.totalProducts().subscribe(total => {
+      this.cartsService.total().subscribe(total => {
         this.cartTotal = total;
       });
     }

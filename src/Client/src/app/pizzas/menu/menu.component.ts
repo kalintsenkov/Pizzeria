@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { IPizza } from '../../core/models/pizza.model';
+import { IErrors } from '../../core/models/errors.model';
+import { AuthService } from '../../core/services/auth.service';
+import { CartsService } from '../../core/services/carts.service';
 import { PizzasService } from '../../core/services/pizzas.service';
 
 @Component({
@@ -15,9 +18,13 @@ export class MenuComponent implements OnInit {
   page: number;
   totalPages: number;
   pizzas: Array<IPizza>;
+  errors: IErrors = { errors: {} };
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
+    private authService: AuthService,
+    private cartsService: CartsService,
     private pizzasService: PizzasService
   ) {
     this.query = this.route.snapshot.paramMap.get('query') ?? '';
@@ -34,5 +41,19 @@ export class MenuComponent implements OnInit {
       // this.page = res['page'];
       // this.totalPages = res['totalPages'];
     });
+  }
+
+  addToCart(id: number, event: Event): void {
+    event.preventDefault();
+
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    this.cartsService.addPizza(id).subscribe(
+      res => window.location.href = "/cart",
+      err => this.errors = err
+    );
   }
 }

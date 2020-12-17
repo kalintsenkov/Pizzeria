@@ -20,7 +20,7 @@
         {
         }
 
-        public async Task<Result> AddProductAsync(
+        public async Task<Result> AddPizzaAsync(
             ShoppingCartRequestModel model, string userId)
         {
             var pizzaId = model.PizzaId;
@@ -48,7 +48,7 @@
             return Result.Success;
         }
 
-        public async Task<Result> UpdateProductAsync(
+        public async Task<Result> UpdatePizzaAsync(
             ShoppingCartRequestModel model, string userId)
         {
             var productId = model.PizzaId;
@@ -70,7 +70,7 @@
             return Result.Success;
         }
 
-        public async Task<Result> RemoveProductAsync(
+        public async Task<Result> RemovePizzaAsync(
             int pizzaId, string userId)
         {
             var shoppingCartProduct = await this.FindByProductAndUserAsync(

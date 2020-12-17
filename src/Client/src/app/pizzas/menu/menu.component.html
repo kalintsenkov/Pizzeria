@@ -28,7 +28,7 @@
                         </div>
                         <div class="product-controls">
                             <p class="product-price">{{(pizza.price).toFixed(2)}}$</p>
-                            <a href="#" class="order-item btn-custom btn-sm shadow-none">
+                            <a href="" (click)="addToCart(pizza.id, $event)" class="order-item btn-custom btn-sm shadow-none">
                                 Order <i class="fas fa-shopping-cart"></i>
                             </a>
                         </div>

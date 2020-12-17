@@ -26,27 +26,27 @@
             => await this.shoppingCarts.ByUserAsync(
                 this.currentUser.UserId);
 
-        [HttpGet(nameof(TotalProducts))]
-        public async Task<ActionResult<int>> TotalProducts()
+        [HttpGet(nameof(Total))]
+        public async Task<ActionResult<int>> Total()
             => await this.shoppingCarts.TotalAsync(
                 this.currentUser.UserId);
 
         [HttpPost]
-        public async Task<ActionResult> AddProduct(
+        public async Task<ActionResult> AddPizza(
             ShoppingCartRequestModel model)
-            => await this.shoppingCarts.AddProductAsync(
+            => await this.shoppingCarts.AddPizzaAsync(
                 model, this.currentUser.UserId);
 
         [HttpPut]
-        public async Task<ActionResult> UpdateProduct(
+        public async Task<ActionResult> UpdatePizza(
             ShoppingCartRequestModel model)
-            => await this.shoppingCarts.UpdateProductAsync(
+            => await this.shoppingCarts.UpdatePizzaAsync(
                 model, this.currentUser.UserId);
 
         [HttpDelete(Id)]
-        public async Task<ActionResult> RemoveProduct(
+        public async Task<ActionResult> RemovePizza(
             int id)
-            => await this.shoppingCarts.RemoveProductAsync(
+            => await this.shoppingCarts.RemovePizzaAsync(
                 id, this.currentUser.UserId);
     }
 }

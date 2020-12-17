@@ -3,38 +3,40 @@
 <section class="section">
   <div class="container">
 
+    <app-error-list [errors]="errors"></app-error-list>
+
     <table class="ct-responsive-table">
       <thead>
         <tr>
           <th class="remove-item"></th>
           <th>Product</th>
           <th>Price</th>
-          <th>Qunantity</th>
+          <th>Quantity</th>
           <th>Total</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr *ngFor="let pizza of cartPizzas">
           <td class="remove">
-            <button type="button" class="close-btn close-danger remove-from-cart">
+            <button (click)="removePizza(pizza?.id)" type="button" class="close-btn close-danger remove-from-cart">
               <span></span>
               <span></span>
             </button>
           </td>
           <td data-title="Product">
             <div class="cart-product-wrapper">
-              <img src="assets/img/prods-sm/3.png" alt="prod1">
+              <img src="{{pizza?.imageUrl}}" alt="prod1">
               <div class="cart-product-body">
-                <h6> <a href="#">Four Cheese</a> </h6>
+                <h6> <a routerLink="/pizza/{{pizza?.id}}">{{pizza?.name}}</a> </h6>
                 <p>Small</p>
               </div>
             </div>
           </td>
-          <td data-title="Price"> <strong>13.99$</strong> </td>
+          <td data-title="Price"> <strong>{{(pizza?.price).toFixed(2)}}$</strong> </td>
           <td class="quantity" data-title="Quantity">
-            <input type="number" class="qty form-control" value="1">
+            <input type="number" class="qty form-control" value="{{pizza.quantity}}">
           </td>
-          <td data-title="Total"> <strong>13.99$</strong> </td>
+          <td data-title="Total"> <strong>{{(pizza?.price * pizza?.quantity)?.toFixed(2)}}$</strong> </td>
         </tr>
 
       </tbody>
@@ -47,7 +49,7 @@
           <tbody>
             <tr>
               <th>Subtotal</th>
-              <td>90.99$</td>
+              <td>{{totalPrice()?.toFixed(2)}}$</td>
             </tr>
             <tr>
               <th>Tax</th>
@@ -55,7 +57,7 @@
             </tr>
             <tr>
               <th>Total</th>
-              <td> <b>99.99$</b> </td>
+              <td> <b>{{totalPrice()?.toFixed(2)}}$</b> </td>
             </tr>
           </tbody>
         </table>
