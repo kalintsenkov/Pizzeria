@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { IErrors } from '../../core/interfaces/IErrors';
+import { IErrors } from '../../core/models/errors.model';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({

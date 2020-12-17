@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { IErrors } from '../../core/interfaces/IErrors';
+import { IErrors } from '../../core/models/errors.model';
 
 @Component({
   selector: 'app-error-list',

@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { IErrors } from '../../core/models/errors.model';
 import { AuthService } from '../../core/services/auth.service';
 import { JwtService } from '../../core/services/jwt.service';
-import { IErrors } from '../../core/interfaces/IErrors';
 
 @Component({
   selector: 'app-login',

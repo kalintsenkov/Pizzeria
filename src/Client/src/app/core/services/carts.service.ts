@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ApiService } from './api.service';
-import { ICartProduct } from '../interfaces/ICartProduct';
+import { ICartProduct } from '../models/cartProduct.model';
 
 @Injectable({
     providedIn: 'root'
