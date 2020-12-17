@@ -9,7 +9,11 @@
         [Required]
         public int PizzaId { get; set; }
 
+        [Required]
         [Range(MinQuantity, MaxQuantity)]
         public int Quantity { get; set; } = MinQuantity;
+
+        [Required]
+        public int Size { get; set; }
     }
 }

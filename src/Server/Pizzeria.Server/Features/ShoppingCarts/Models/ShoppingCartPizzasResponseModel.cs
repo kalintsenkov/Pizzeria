@@ -16,6 +16,8 @@
 
         public int Quantity { get; set; }
 
+        public string Size { get; set; }
+
         public void Mapping(Profile mapper)
             => mapper
                 .CreateMap<ShoppingCartPizza, ShoppingCartPizzasResponseModel>()
@@ -28,6 +30,8 @@
                 .ForMember(m => m.ImageUrl, m => m
                     .MapFrom(c => c.Pizza.ImageUrl))
                 .ForMember(m => m.Quantity, m => m
-                    .MapFrom(c => c.Quantity));
+                    .MapFrom(c => c.Quantity))
+                .ForMember(m => m.Size, m => m
+                    .MapFrom(c => c.Size.ToString()));
     }
 }

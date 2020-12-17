@@ -6,6 +6,7 @@
     using AutoMapper;
     using Data;
     using Data.Models;
+    using Data.Models.Enums;
     using Infrastructure.Common;
     using Infrastructure.Services.Common;
     using Microsoft.EntityFrameworkCore;
@@ -39,7 +40,8 @@
             {
                 ShoppingCart = shoppingCart,
                 PizzaId = pizzaId,
-                Quantity = requestQuantity
+                Quantity = requestQuantity,
+                Size = (Size)model.Size
             };
 
             await this.Data.AddAsync(shoppingCartProduct);
