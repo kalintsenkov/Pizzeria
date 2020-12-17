@@ -23,6 +23,7 @@
                 .AddDbContext<PizzeriaDbContext>(options => options
                     .UseSqlServer(configuration
                         .GetDefaultConnectionString()))
+                .AddTransient<IInitialData, PizzaData>()
                 .AddTransient<IInitializer, PizzeriaDbInitializer>();
 
         public static IServiceCollection AddIdentity(this IServiceCollection services)
