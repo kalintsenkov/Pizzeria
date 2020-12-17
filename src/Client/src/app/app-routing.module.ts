@@ -9,6 +9,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'pizzas', loadChildren: './pizzas/pizzas.module#PizzasModule' },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuardService] },
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
 ];

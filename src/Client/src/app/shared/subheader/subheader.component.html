@@ -1,0 +1,15 @@
+<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('assets/img/subheader.jpg')">
+    <div class="container">
+        <div class="subheader-inner">
+            <h1>{{heading}}</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item" *ngFor="let breadcrumb of breadcrumbs">
+                        <a routerLink="/{{breadcrumb.toLowerCase()}}">{{breadcrumb}}</a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+</div>
