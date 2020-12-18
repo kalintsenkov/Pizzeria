@@ -7,11 +7,15 @@ import { PizzasRoutingModule } from './pizzas-routing.module';
 
 import { MenuComponent } from './menu/menu.component';
 import { DetailsComponent } from './details/details.component';
+import { CreateComponent } from './create/create.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     MenuComponent,
-    DetailsComponent
+    DetailsComponent,
+    CreateComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,
