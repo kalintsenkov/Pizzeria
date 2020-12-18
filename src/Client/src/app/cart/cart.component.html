@@ -28,13 +28,13 @@
               <img src="{{pizza?.imageUrl}}" alt="prod1">
               <div class="cart-product-body">
                 <h6> <a routerLink="/pizza/{{pizza?.id}}">{{pizza?.name}}</a> </h6>
-                <p>Small</p>
+                <p>{{pizza?.size}}</p>
               </div>
             </div>
           </td>
           <td data-title="Price"> <strong>{{(pizza?.price).toFixed(2)}}$</strong> </td>
           <td class="quantity" data-title="Quantity">
-            <input type="number" class="qty form-control" value="{{pizza.quantity}}">
+            <input type="number" class="qty form-control" value="{{pizza?.quantity}}">
           </td>
           <td data-title="Total"> <strong>{{(pizza?.price * pizza?.quantity)?.toFixed(2)}}$</strong> </td>
         </tr>
@@ -62,7 +62,7 @@
           </tbody>
         </table>
         <a routerLink="/checkout" class="btn-custom primary btn-block">
-          Proceeed to Checkout
+          Proceed to Checkout
         </a>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartsService } from '../core/services/carts.service';
 
 import { IErrors } from '../core/models/errors.model';
-import { ICartProduct } from '../core/models/cartProduct.model';
+import { ICartPizza } from '../core/models/cartPizza.model';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +12,7 @@ import { ICartProduct } from '../core/models/cartProduct.model';
 })
 export class CartComponent implements OnInit {
 
-  cartPizzas: Array<ICartProduct>;
+  cartPizzas: Array<ICartPizza>;
   errors: IErrors = { errors: {} };
 
   constructor(private cartsService: CartsService) { }
