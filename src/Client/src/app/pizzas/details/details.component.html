@@ -60,6 +60,14 @@
                         <button type="submit" name="button" class="btn-custom secondary" (click)="addToCart()">
                             Order <i class="fas fa-shopping-cart"></i>
                         </button>
+                        <a *ngIf="isAdministrator()" routerLink="/pizza/{{pizza?.id}}/edit" type="submit" name="button"
+                            class="btn-custom secondary">
+                            Edit <i class="fas fa-edit"></i>
+                        </a>
+                        <a *ngIf="isAdministrator()" (click)="deleteProduct()" type="submit" name="button"
+                            class="btn-custom close-danger">
+                            Delete <i class="fas fa-trash-alt"></i>
+                        </a>
                     </form>
                 </div>
             </div>

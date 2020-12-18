@@ -1,0 +1,12 @@
+button {
+    margin-right: 12px;
+}
+
+a.btn-custom {
+    margin-right: 12px;
+    color: white;
+}
+
+a.btn-custom:hover {
+    color: white;
+}

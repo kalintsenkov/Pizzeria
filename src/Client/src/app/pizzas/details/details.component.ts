@@ -69,7 +69,7 @@ export class DetailsComponent implements OnInit {
 
   deleteProduct(): void {
     this.pizzasService.delete(this.id).subscribe(
-      res => this.router.navigate(['/products']),
+      res => this.router.navigate(['/menu']),
       err => this.errors = err
     );
   }
