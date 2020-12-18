@@ -419,15 +419,15 @@
   /*-------------------------------------------------------------------------------
   Add / Subtract Quantity
   -------------------------------------------------------------------------------*/
-  $(".qty span").on('click', function(){
-    var qty = $(this).closest('.qty').find('input');
-    var qtyVal = parseInt(qty.val());
-    if($(this).hasClass('qty-add')){
-      qty.val(qtyVal + 1);
-    }else{
-      return qtyVal > 1 ? qty.val(qtyVal - 1) : 0;
-    }
-  })
+  // $(".qty span").on('click', function(){
+  //   var qty = $(this).closest('.qty').find('input');
+  //   var qtyVal = parseInt(qty.val());
+  //   if($(this).hasClass('qty-add')){
+  //     qty.val(qtyVal + 1);
+  //   }else{
+  //     return qtyVal > 1 ? qty.val(qtyVal - 1) : 0;
+  //   }
+  // })
 
   //On scroll events
   $(window).on('scroll', function() {

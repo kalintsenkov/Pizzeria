@@ -4,39 +4,62 @@
 <div class="section product-single">
     <div class="container">
 
+        <app-error-list [errors]="errors"></app-error-list>
+
         <div class="row">
             <div class="col-md-5">
 
                 <div class="product-thumb">
-                    <img src="assets/img/prods/2.png" alt="pizza">
+                    <img src="{{pizza?.imageUrl}}" alt="pizza">
                 </div>
 
             </div>
             <div class="col-md-7">
                 <div class="product-content">
 
-                    <h2 class="title">Barbeque Chicken</h2>
+                    <h2 class="title">{{pizza?.name}}</h2>
 
                     <div class="price-wrapper">
-                        <p class="product-price">14.99$</p>
+                        <p class="product-price">{{(pizza?.price).toFixed(2)}}$</p>
                     </div>
 
                     <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industry's standard dummy text ever since the 1500s
+                        {{pizza?.description}}
                     </p>
+
+                    <div class="customize-variations">
+
+                        <div class="customize-size-wrapper">
+                            <h5>Size: </h5>
+                            <div class="customize-size active" (click)="changeSize(Size.Small, $event)">
+                                25"
+                            </div>
+                            <div class="customize-size" (click)="changeSize(Size.Medium, $event)">
+                                30"
+                            </div>
+                            <div class="customize-size" (click)="changeSize(Size.Large, $event)">
+                                36"
+                            </div>
+                        </div>
+                    </div>
 
                     <form class="atc-form" method="post">
                         <div class="form-group">
                             <label>Quantity</label>
                             <div class="qty">
-                                <span class="qty-subtract"><i class="fas fa-minus"></i></span>
-                                <input type="text" name="qty" value="1">
-                                <span class="qty-add"><i class="fas fa-plus"></i></span>
+                                <span class="qty-subtract" (click)="decrement()">
+                                    <i class="fas fa-minus"></i>
+                                </span>
+                                <input type="text" name="qty" [value]="orderQuantity"
+                                    (change)="this.orderQuantity = orderQuantity">
+                                <span class="qty-add" (click)="increment()">
+                                    <i class="fas fa-plus"></i>
+                                </span>
                             </div>
                         </div>
-                        <button type="submit" name="button" class="btn-custom secondary"> Order <i
-                                class="fas fa-shopping-cart"></i> </button>
+                        <button type="submit" name="button" class="btn-custom secondary" (click)="addToCart()">
+                            Order <i class="fas fa-shopping-cart"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -52,11 +75,7 @@
                 <div class="tab-pane fade show active" id="tab-product-desc" role="tabpanel"
                     aria-labelledby="tab-product-desc-tab">
                     <h4>Description</h4>
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
-                    wolf moon officia aute,
-                    non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-                    moon tempor, sunt aliqua put a
-                    bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica
+                    {{pizza?.description}}
                 </div>
             </div>
         </div>
