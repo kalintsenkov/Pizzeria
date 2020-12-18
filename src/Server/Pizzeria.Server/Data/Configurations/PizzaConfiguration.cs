@@ -32,12 +32,6 @@
                 .Property(p => p.Description)
                 .HasMaxLength(MaxDescriptionLength)
                 .IsRequired();
-
-            builder
-                .HasIndex(p => p.IsDeleted);
-
-            builder
-                .HasQueryFilter(p => !p.IsDeleted);
         }
     }
 }

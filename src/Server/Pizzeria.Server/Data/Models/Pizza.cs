@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using Common;
 
-    public class Pizza : DeletableEntity
+    public class Pizza : Entity
     {
         public int Id { get; set; }
 
