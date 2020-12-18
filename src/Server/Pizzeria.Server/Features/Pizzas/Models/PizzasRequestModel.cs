@@ -19,6 +19,7 @@
         public decimal Price { get; set; }
 
         [Required]
+        [Url]
         [MaxLength(MaxUrlLength)]
         public string ImageUrl { get; set; }
 

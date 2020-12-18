@@ -25,7 +25,7 @@ export class PizzasService {
         return this.api.get(this.pizzasPath + id);
     }
 
-    create(data: any): Observable<number> {
+    create(data: any) {
         return this.api.post(this.pizzasPath, data);
     }
 

@@ -29,7 +29,8 @@ import { SubheaderComponent } from './subheader/subheader.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

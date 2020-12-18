@@ -42,7 +42,7 @@ export class DetailsComponent implements OnInit {
     return Size;
   }
 
-  changeSize(size: Size, event: Event) {
+  changeSize(size: Size, event: Event): void {
     this.orderSize = size;
     this.toggleActive(event);
   }
@@ -78,7 +78,7 @@ export class DetailsComponent implements OnInit {
     return this.authService.isAdministrator();
   }
 
-  private toggleActive(event: Event) {
+  private toggleActive(event: Event): void {
     const activeClass = 'active';
     const activeDiv = document.getElementsByClassName('customize-size active')[0];
     activeDiv.classList.remove(activeClass);
