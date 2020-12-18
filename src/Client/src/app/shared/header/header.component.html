@@ -19,8 +19,14 @@
                 <li class="menu-item">
                     <a routerLink='/contacts'>Contact Us</a>
                 </li>
-                <li class="menu-item">
-                    <a routerLink='/about'>About Us</a>
+                <li *ngIf="isAuthenticated()" class="menu-item">
+                    <a (click)="logout()">Logout</a>
+                </li>
+                <li *ngIf="!isAuthenticated()" class="menu-item">
+                    <a routerLink='/login'>Login</a>
+                </li>
+                <li *ngIf="!isAuthenticated()" class="menu-item">
+                    <a routerLink='/register'>Register</a>
                 </li>
             </ul>
         </ul>
@@ -52,9 +58,6 @@
                 <li class="menu-item">
                     <a routerLink='/contacts'>Contact Us</a>
                 </li>
-                <li class="menu-item">
-                    <a routerLink='/about'>About Us</a>
-                </li>
                 <li *ngIf="isAuthenticated()" class="menu-item">
                     <a (click)="logout()">Logout</a>
                 </li>
@@ -78,7 +81,7 @@
                         <i class="flaticon-search"></i>
                     </li>
                 </ul>
-                <!-- Toggler -->
+
                 <div class="aside-toggler aside-trigger">
                     <span></span>
                     <span></span>

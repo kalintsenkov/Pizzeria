@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { IPizza } from '../core/models/pizza.model';
+import { PizzasService } from '../core/services/pizzas.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  pizzas: Array<IPizza>;
+
+  constructor(private pizzasService: PizzasService) { }
 
   ngOnInit(): void {
+    this.pizzasService.search().subscribe(pizzas => {
+      this.pizzas = pizzas;
+    });
   }
-
 }
