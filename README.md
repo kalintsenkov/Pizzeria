@@ -10,7 +10,8 @@
 ### User Logout 
     o Logouts from the application. 
 ##### Home 
-    o List top-six pizzas by user likes.
+    o Pizzeria info.
+    o Pizzeria menu.
 ### Menu
     o List all pizzas. Nine per page.  
     o Search pizzas by their name
