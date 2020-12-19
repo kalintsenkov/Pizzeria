@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { PreloaderComponent } from './preloader/preloader.component';
 import { ErrorListComponent } from './error-list/error-list.component';
 import { SubheaderComponent } from './subheader/subheader.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SubheaderComponent } from './subheader/subheader.component';
     FooterComponent,
     PreloaderComponent,
     ErrorListComponent,
-    SubheaderComponent
+    SubheaderComponent,
+    PaginationComponent
   ],
   exports: [
     HeaderComponent,
@@ -23,6 +25,7 @@ import { SubheaderComponent } from './subheader/subheader.component';
     PreloaderComponent,
     ErrorListComponent,
     SubheaderComponent,
+    PaginationComponent,
     FormsModule,
     RouterModule,
     ReactiveFormsModule
