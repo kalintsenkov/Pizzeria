@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { PreloaderComponent } from './preloader/preloader.component';
@@ -26,11 +28,13 @@ import { PaginationComponent } from './pagination/pagination.component';
     ErrorListComponent,
     SubheaderComponent,
     PaginationComponent,
+    LeafletModule,
     FormsModule,
     RouterModule,
     ReactiveFormsModule
   ],
   imports: [
+    LeafletModule,
     CommonModule,
     RouterModule,
     ReactiveFormsModule

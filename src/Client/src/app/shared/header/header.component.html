@@ -16,9 +16,6 @@
                 <li class="menu-item">
                     <a routerLink='/locations'>Locations</a>
                 </li>
-                <li class="menu-item">
-                    <a routerLink='/contacts'>Contact Us</a>
-                </li>
                 <li *ngIf="isAuthenticated()" class="menu-item">
                     <a (click)="logout()">Logout</a>
                 </li>
@@ -54,9 +51,6 @@
                 </li>
                 <li class="menu-item">
                     <a routerLink='/locations'>Locations</a>
-                </li>
-                <li class="menu-item">
-                    <a routerLink='/contacts'>Contact Us</a>
                 </li>
                 <li *ngIf="isAuthenticated()" class="menu-item">
                     <a (click)="logout()">Logout</a>

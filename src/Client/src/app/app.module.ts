@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { LocationsComponent } from './locations/locations.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HomeComponent,
     CartComponent,
     CheckoutComponent,
+    LocationsComponent,
   ],
   imports: [
     AuthenticationModule,
