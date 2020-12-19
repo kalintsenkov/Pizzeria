@@ -47,6 +47,8 @@
                 orderPizzas.Add(orderPizza);
             }
 
+            this.Data.RemoveRange(shoppingCartPizzas);
+
             await this.Data.AddRangeAsync(orderPizzas);
             await this.Data.SaveChangesAsync();
 
