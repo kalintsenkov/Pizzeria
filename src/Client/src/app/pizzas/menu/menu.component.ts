@@ -15,7 +15,7 @@ import { PizzasService } from '../../core/services/pizzas.service';
 export class MenuComponent implements OnInit {
 
   query: string;
-  page: number;
+  page: number = 1;
   totalPages: number;
   pizzas: Array<IPizza>;
   errors: IErrors = { errors: {} };

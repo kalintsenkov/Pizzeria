@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pagination',
@@ -7,18 +8,22 @@ import { Component, Input } from '@angular/core';
 })
 export class PaginationComponent {
 
-  @Input() page: number = 1;
+  @Input() page: number;
   @Input() totalPages: number;
+
+  constructor(private router: Router) { }
 
   nextPage() {
     if (this.page + 1 <= this.totalPages) {
       this.page++;
+      this.router.navigate(['/menu/page/' + this.page]);
     }
   }
 
   previousPage() {
     if (this.page - 1 >= 0) {
       this.page--;
+      this.router.navigate(['/menu/page/' + this.page]);
     }
   }
 }
