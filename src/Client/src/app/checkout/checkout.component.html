@@ -4,45 +4,37 @@
 <section class="section">
   <div class="container">
 
-    <form method="post">
+    <form [formGroup]="checkoutForm" (ngSubmit)="purchase()">
       <div class="row">
         <div class="col-xl-7">
 
           <h4>Billing Details</h4>
+
+          <app-error-list [errors]="errors"></app-error-list>
+
           <div class="row">
             <div class="form-group col-xl-6">
-              <label>First Name <span class="text-danger">*</span></label>
-              <input type="text" placeholder="First Name" name="fname" class="form-control" value="" required="">
+              <label> Town / City <span class="text-danger">*</span></label>
+              <input type="text" placeholder="Town / City" name="city" class="form-control" formControlName="city">
             </div>
             <div class="form-group col-xl-6">
-              <label>Last Name <span class="text-danger">*</span></label>
-              <input type="text" placeholder="Last Name" name="lname" class="form-control" value="" required="">
-            </div>
-            <div class="form-group col-xl-6">
-              <label>Street Address 1 <span class="text-danger">*</span></label>
-              <input type="text" placeholder="Street Address One" name="addr-1" class="form-control" value=""
-                required="">
-            </div>
-            <div class="form-group col-xl-6">
-              <label>Street Address 2</label>
-              <input type="text" placeholder="Street Address Two (Optional)" name="addr-1" class="form-control"
-                value="">
+              <label>Region <span class="text-danger">*</span></label>
+              <input type="text" placeholder="Region" name="region" class="form-control" formControlName="region">
             </div>
             <div class="form-group col-xl-12">
-              <label>Town / City <span class="text-danger">*</span></label>
-              <input type="text" placeholder="Town/City" name="town" class="form-control" value="" required="">
+              <label>Address <span class="text-danger">*</span></label>
+              <input type="text" placeholder="Address" name="address" class="form-control"
+                formControlName="description">
             </div>
-            <div class="form-group col-xl-6">
+            <div class="form-group col-xl-12">
               <label>Phone Number <span class="text-danger">*</span></label>
-              <input type="text" placeholder="Phone Number" name="phone" class="form-control" value="" required="">
-            </div>
-            <div class="form-group col-xl-6">
-              <label>Email Address <span class="text-danger">*</span></label>
-              <input type="email" placeholder="Email Address" name="email" class="form-control" value="" required="">
+              <input type="tel" placeholder="Phone Number" name="phone" class="form-control"
+                formControlName="phoneNumber">
             </div>
             <div class="form-group col-xl-12 mb-0">
               <label>Order Notes</label>
-              <textarea name="name" rows="5" class="form-control" placeholder="Order Notes (Optional)"></textarea>
+              <textarea name="name" rows="5" class="form-control" placeholder="Order Notes (Optional)"
+                formControlName="notes"></textarea>
             </div>
           </div>
 
@@ -52,58 +44,34 @@
             <thead>
               <tr>
                 <th>Product</th>
-                <th>Qunantity</th>
+                <th>Quantity</th>
                 <th>Total</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let pizza of cartProducts">
                 <td data-title="Product">
                   <div class="cart-product-wrapper">
                     <div class="cart-product-body">
-                      <h6> <a href="#">Pepperoni</a> </h6>
-                      <p>21 Inch</p>
-                      <p>Extra Cheese</p>
-                      <p>Extra Pepperoni</p>
-                      <p>Cheese Crust</p>
-                      <p>Added Bacon</p>
+                      <h6>
+                        <a routerLink="/pizza/{{pizza.id}}">
+                          {{pizza.name}}
+                        </a>
+                      </h6>
+                      <p>{{pizza.size}}</p>
                     </div>
                   </div>
                 </td>
-                <td data-title="Quantity">x1</td>
-                <td data-title="Total"> <strong>23.99$</strong> </td>
+                <td data-title="Quantity">x{{pizza.quantity}}</td>
+                <td data-title="Total"> <strong>{{(pizza.quantity * pizza.price).toFixed(2)}}$</strong> </td>
               </tr>
-              <tr>
-                <td data-title="Product">
-                  <div class="cart-product-wrapper">
-                    <div class="cart-product-body">
-                      <h6> <a href="#">Vegetarian</a> </h6>
-                      <p>14 Inch</p>
-                    </div>
-                  </div>
-                </td>
-                <td data-title="Quantity">x1</td>
-                <td data-title="Total"> <strong>9.99$</strong> </td>
-              </tr>
-              <tr>
-                <td data-title="Product">
-                  <div class="cart-product-wrapper">
-                    <div class="cart-product-body">
-                      <h6> <a href="#">Four Cheese</a> </h6>
-                      <p>21 Inch</p>
-                      <p>Added Cheese</p>
-                    </div>
-                  </div>
-                </td>
-                <td data-title="Quantity">x2</td>
-                <td data-title="Total"> <strong>13.99$</strong> </td>
-              </tr>
+
               <tr class="total">
                 <td>
                   <h6 class="mb-0">Grand Total</h6>
                 </td>
                 <td></td>
-                <td> <strong>56.99$</strong> </td>
+                <td> <strong>{{totalPrice()?.toFixed(2)}}$</strong> </td>
               </tr>
             </tbody>
           </table>

@@ -6,6 +6,9 @@ import { ApiService } from './services/api.service';
 import { JwtService } from './services/jwt.service';
 import { AuthService } from './services/auth.service';
 import { CartsService } from './services/carts.service';
+import { OrdersService } from './services/orders.service';
+import { AddressesService } from './services/addresses.service';
+
 import { AuthGuardService } from './services/auth-guard.service';
 import { RoleGuardService } from './services/role-guard.service';
 
@@ -23,6 +26,8 @@ import { TokenInterceptorService } from './interceptors/token-interceptor.servic
     JwtService,
     AuthService,
     CartsService,
+    OrdersService,
+    AddressesService,
     AuthGuardService,
     RoleGuardService
   ],

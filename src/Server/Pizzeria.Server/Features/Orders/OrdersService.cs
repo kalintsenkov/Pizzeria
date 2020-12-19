@@ -1,11 +1,13 @@
 ﻿namespace Pizzeria.Server.Features.Orders
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
     using AutoMapper;
     using Data;
     using Data.Models;
-    using Data.Models.Enums;
     using Infrastructure.Services.Common;
+    using Microsoft.EntityFrameworkCore;
     using Models;
 
     public class OrdersService : DataService<Order>, IOrdersService
@@ -19,18 +21,33 @@
         {
             var order = new Order
             {
-                UserId = userId
+                UserId = userId,
+                Notes = request.Notes,
+                DeliveryAddressId = request.AddressId
             };
 
-            var orderPizza = new OrderPizza
+            var shoppingCartPizzas = await this
+                .Data
+                .ShoppingCartsPizzas
+                .Where(sc => sc.ShoppingCart.UserId == userId)
+                .ToListAsync();
+
+            var orderPizzas = new List<OrderPizza>();
+
+            foreach (var shoppingCartPizza in shoppingCartPizzas)
             {
-                Order = order,
-                PizzaId = request.PizzaId,
-                Quantity = request.Quantity,
-                Size = (Size)request.Size
-            };
+                var orderPizza = new OrderPizza
+                {
+                    Order = order,
+                    PizzaId = shoppingCartPizza.PizzaId,
+                    Quantity = shoppingCartPizza.Quantity,
+                    Size = shoppingCartPizza.Size
+                };
 
-            await this.Data.AddAsync(orderPizza);
+                orderPizzas.Add(orderPizza);
+            }
+
+            await this.Data.AddRangeAsync(orderPizzas);
             await this.Data.SaveChangesAsync();
 
             return order.Id;

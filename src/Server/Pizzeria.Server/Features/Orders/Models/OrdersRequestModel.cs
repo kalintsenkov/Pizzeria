@@ -1,11 +1,15 @@
 ﻿namespace Pizzeria.Server.Features.Orders.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
+    using static Data.DataConstants.Common;
+
     public class OrdersRequestModel
     {
-        public int PizzaId { get; set; }
+        [Required]
+        public int AddressId { get; set; }
 
-        public int Quantity { get; set; }
-
-        public int Size { get; set; }
+        [MaxLength(MaxDescriptionLength)]
+        public string Notes { get; set; }
     }
 }
