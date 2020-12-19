@@ -31,9 +31,9 @@
   /*-------------------------------------------------------------------------------
   Search Trigger
   -------------------------------------------------------------------------------*/
-  $(".search-trigger").on('click', function(e) {
-    $(".search-form-wrapper").toggleClass('open');
-  });
+  // $(".search-trigger").on('click', function(e) {
+  //   $(".search-form-wrapper").toggleClass('open');
+  // });
 
   /*-------------------------------------------------------------------------------
   Checkout Notices

@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   constructor(private pizzasService: PizzasService) { }
 
   ngOnInit(): void {
-    this.pizzasService.search().subscribe(pizzas => {
-      this.pizzas = pizzas;
+    this.pizzasService.search().subscribe(res => {
+      this.pizzas = res['pizzas'];
     });
   }
 }

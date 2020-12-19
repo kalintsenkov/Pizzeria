@@ -8,8 +8,7 @@
     public abstract class Specification<T>
         where T : class
     {
-        private static readonly ConcurrentDictionary<string, Func<T, bool>> DelegateCache
-            = new ConcurrentDictionary<string, Func<T, bool>>();
+        private static readonly ConcurrentDictionary<string, Func<T, bool>> DelegateCache = new();
 
         private readonly List<string> cacheKey;
 

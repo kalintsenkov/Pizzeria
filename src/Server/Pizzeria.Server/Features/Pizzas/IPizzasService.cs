@@ -1,6 +1,5 @@
 ﻿namespace Pizzeria.Server.Features.Pizzas
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Infrastructure.Common;
     using Infrastructure.Services.Common;
@@ -16,6 +15,6 @@
 
         Task<PizzasDetailsResponseModel> DetailsAsync(int id);
 
-        Task<IEnumerable<PizzasListingResponseModel>> SearchAsync();
+        Task<PizzasSearchResponseModel> SearchAsync(PizzasSearchRequestModel request);
     }
 }

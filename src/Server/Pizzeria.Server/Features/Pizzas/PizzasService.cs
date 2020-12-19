@@ -1,6 +1,6 @@
 ﻿namespace Pizzeria.Server.Features.Pizzas
 {
-    using System.Collections.Generic;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using AutoMapper;
@@ -10,15 +10,19 @@
     using Infrastructure.Services.Common;
     using Microsoft.EntityFrameworkCore;
     using Models;
+    using Specifications;
 
     public class PizzasService : DataService<Pizza>, IPizzasService
     {
+        private const int PizzasPerPage = 9;
+
         public PizzasService(PizzeriaDbContext data, IMapper mapper)
             : base(data, mapper)
         {
         }
 
-        public async Task<int> CreateAsync(PizzasRequestModel request)
+        public async Task<int> CreateAsync(
+            PizzasRequestModel request)
         {
             var pizza = new Pizza
             {
@@ -35,7 +39,8 @@
             return pizza.Id;
         }
 
-        public async Task<Result> UpdateAsync(int id, PizzasRequestModel request)
+        public async Task<Result> UpdateAsync(
+            int id, PizzasRequestModel request)
         {
             var pizza = await this.FindByIdAsync(id);
 
@@ -79,11 +84,36 @@
                     .Where(p => p.Id == id))
                 .FirstOrDefaultAsync();
 
-        public async Task<IEnumerable<PizzasListingResponseModel>> SearchAsync()
-            => await this.Mapper
+        public async Task<PizzasSearchResponseModel> SearchAsync(
+            PizzasSearchRequestModel request)
+        {
+            var specification = this.GetPizzaSpecification(request);
+
+            var pizzas = await this.Mapper
                 .ProjectTo<PizzasListingResponseModel>(this
-                    .AllAsNoTracking())
+                    .AllAsNoTracking()
+                    .Where(specification)
+                    .Skip((request.Page - 1) * PizzasPerPage)
+                    .Take(PizzasPerPage))
                 .ToListAsync();
+
+            var totalPages = await this.GetTotalPages(request);
+
+            return new PizzasSearchResponseModel(pizzas, request.Page, totalPages);
+        }
+
+        private async Task<int> GetTotalPages(
+            PizzasSearchRequestModel request)
+        {
+            var specification = this.GetPizzaSpecification(request);
+
+            var total = await this
+                .AllAsNoTracking()
+                .Where(specification)
+                .CountAsync();
+
+            return (int)Math.Ceiling((double)total / PizzasPerPage);
+        }
 
         private async Task<Pizza> FindByIdAsync(
             int id)
@@ -91,5 +121,9 @@
                 .All()
                 .Where(p => p.Id == id)
                 .FirstOrDefaultAsync();
+
+        private Specification<Pizza> GetPizzaSpecification(
+            PizzasSearchRequestModel request)
+            => new PizzaByNameSpecification(request.Query);
     }
 }

@@ -36,10 +36,12 @@ export class MenuComponent implements OnInit {
       this.page = 1;
     }
 
-    this.pizzasService.search(this.query).subscribe(pizzas => {
-      this.pizzas = pizzas;
-      // this.page = res['page'];
-      // this.totalPages = res['totalPages'];
+    const query = `?query=${this.query}&page=${this.page}`;
+
+    this.pizzasService.search(query).subscribe(res => {
+      this.pizzas = res['pizzas'];
+      this.page = res['page'];
+      this.totalPages = res['totalPages'];
     });
   }
 

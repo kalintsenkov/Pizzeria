@@ -1,6 +1,5 @@
 ﻿namespace Pizzeria.Server.Features.Pizzas
 {
-    using System.Collections.Generic;
     using System.Threading.Tasks;
     using Infrastructure.Extensions;
     using Microsoft.AspNetCore.Authorization;
@@ -17,8 +16,9 @@
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IEnumerable<PizzasListingResponseModel>> Search()
-            => await this.pizzas.SearchAsync();
+        public async Task<ActionResult<PizzasSearchResponseModel>> Search(
+            [FromQuery] PizzasSearchRequestModel request)
+            => await this.pizzas.SearchAsync(request);
 
         [HttpGet(Id)]
         [AllowAnonymous]
