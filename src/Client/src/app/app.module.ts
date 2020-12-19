@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LocationsComponent } from './locations/locations.component';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LocationsComponent } from './locations/locations.component';
     CartComponent,
     CheckoutComponent,
     LocationsComponent,
+    SuccessComponent,
   ],
   imports: [
     AuthenticationModule,

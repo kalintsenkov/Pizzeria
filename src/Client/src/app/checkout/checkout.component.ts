@@ -60,7 +60,7 @@ export class CheckoutComponent implements OnInit {
         )
       )
       .subscribe(
-        _ => window.location.href = '/',
+        _ => window.location.href = '/success',
         err => this.errors = err
       );
   }
