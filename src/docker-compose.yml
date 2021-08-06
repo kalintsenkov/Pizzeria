@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+
+    data:
+        container_name: sqlserver
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        ports: 
+            - "1433:1433"
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=yourStrongPassword12!@
+        volumes: 
+            - sqldata:/var/opt/mssql 
+        networks: 
+            - pizza-network
+
+    server:
+        container_name: server
+        image: kalintsenkov/pizza-server:1.0
+        build:
+            context: ./Server
+            dockerfile: ./Pizzeria.Server/Dockerfile
+        ports: 
+            - "5001:80"
+        env_file: 
+            - Server/Pizzeria.Server/Common.env
+        environment:
+            - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=PizzeriaDatabase;User Id=sa; Password=yourStrongPassword12!@;MultipleActiveResultSets=true
+        restart: on-failure
+        volumes:
+            - ./.aspnet/DataProtection-Keys:/root/.aspnet/DataProtection-Keys
+        networks: 
+            - pizza-network
+        depends_on:
+            - data
+
+    client:
+        container_name: client
+        image: kalintsenkov/pizza-user-client:1.0
+        build:
+            context: ./Client
+            dockerfile: ./Dockerfile
+        ports: 
+            - "80:80"
+        restart: on-failure
+        depends_on:
+            - server
+
+networks:
+    pizza-network:
+
+volumes:
+    sqldata:
